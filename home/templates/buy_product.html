@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Sotib olish - Mamizya{% endblock %}
+
+{% block content %}
+    <main>
+        {% block sidebar %}{% include 'components/sidebar.html' %}{% endblock %}
+        <!-- contact main area start  -->
+        <section class="contact-main-area pt-40 pb-60">
+            <div class="container container-small">
+                <div class="row">
+                    <div class="col-lg-8 col-md-12">
+                        <div class="contact-main-wrapper mb-60">
+                            <div class="section-title">
+                                <h2 class="section-main-title mb-40"><i class="fa fa-shopping-cart"></i> Sotib olish
+                                </h2>
+                            </div>
+                            <div class="contact-main-form">
+                                <form method="post"> {% csrf_token %}
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="single-form-input">
+                                                <input name="product_title" type="text" value="Erkaklar rubashkasi"
+                                                       readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="single-form-input">
+                                                <input name="fullname" type="text" placeholder="Ism va Familiya" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="single-form-input">
+                                                <input name="phone" type="number" placeholder="Telefon raqam" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="contact-btn">
+                                        <button type="submit" class="fill-btn">Malumotlarni yuborish</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="sidebar-widget-wrapper mb-60">
+                            <div class="sidebar-widget">
+                                <h4 class="sidebar-widget-title">Maxsulot</h4>
+                                <div class="sidebar-widget-content">
+                                    <div class="contact-list">
+                                        <div class="contact-list-item">
+                                            <div class="irc-item">
+                                                <div class="irc-item-content">
+                                                    <img width="300" src="{{ product.image.url }}"
+                                                         alt="img">
+                                                    <br>
+                                                    <br>
+                                                    <a href="{% url 'shop-detail' product.id %}"><h3 style="text-align: center;">{{ product.title }}</h3></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- contact main area end  -->
+
+    <div class="pt-60 pb-60"></div>
+    </main>
+{% endblock %}
